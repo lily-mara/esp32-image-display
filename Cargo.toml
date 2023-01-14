@@ -1,0 +1,29 @@
+[package]
+name = "esp32-image-display"
+version = "0.1.0"
+authors = ["Lily Mara <lilymara@fastmail.com>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+display-interface-spi = "0.4.1"
+embedded-graphics = "0.7.1"
+esp-idf-sys = { version = "0.31.11", features = ["binstart"] }
+mipidsi = "0.6"
+esp-idf-hal = "0.39.4"
+tinybmp = "0.4"
+embedded-hal = "0.2.7"
+display-interface = "0.4.1"
+
+[build-dependencies]
+embuild = "0.30.4"
